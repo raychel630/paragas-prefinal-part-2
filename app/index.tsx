@@ -1,25 +1,10 @@
 import { useState } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
-/*
-Strategy:
-- Separate input values from applied values.
-- Grid only updates when user clicks REGENERATE.
-*/
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, } from "react-native";
 
 export default function Index() {
-  // 👉 INPUT STATES (what user types)
   const [inputSize, setInputSize] = useState("10");
   const [inputBombs, setInputBombs] = useState("6");
 
-  // 👉 APPLIED STATES (used in grid)
   const [size, setSize] = useState(10);
   const [bombs, setBombs] = useState(6);
 
@@ -113,7 +98,7 @@ export default function Index() {
 
       {/* GRID */}
       <FlatList
-        key={size} // FIX error
+        key={size}
         data={flatBoard}
         renderItem={renderCell}
         keyExtractor={(_, i) => i.toString()}
